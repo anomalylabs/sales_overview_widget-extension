@@ -27,6 +27,7 @@ $(function () {
                     borderColor: '#38b5e6',
                     yAxisID: 'orders',
                     label: 'Orders',
+                    spanGaps: true,
                     pointRadius: 4,
                     borderWidth: 3,
                     lineTension: 0
@@ -46,6 +47,7 @@ $(function () {
                     borderColor: '#24ce7b',
                     yAxisID: 'revenue',
                     label: 'Revenue',
+                    spanGaps: true,
                     pointRadius: 4,
                     borderWidth: 3,
                     lineTension: 0

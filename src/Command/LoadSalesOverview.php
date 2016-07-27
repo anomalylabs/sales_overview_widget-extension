@@ -96,6 +96,13 @@ class LoadSalesOverview implements SelfHandling
             }
         }
 
+        array_walk(
+            $revenue,
+            function ($sale) {
+                return $sale->revenue = (int)$sale->revenue;
+            }
+        );
+
         uasort($orders, function($a, $b) {
             return $a->date > $b->date;
         });
