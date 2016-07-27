@@ -65,7 +65,7 @@ $(function () {
                         time: {
                             unit: 'day',
                             tooltipFormat: 'MMM D',
-                            max: new Date().setDate((new Date()).getDate() - 1),
+                            max: new Date().setDate((new Date()).getDate()),
                             min: new Date().setDate((new Date()).getDate() - 30),
                             displayFormats: {
                                 day: 'MMM D'

@@ -69,7 +69,7 @@ class LoadSalesOverview implements SelfHandling
             ->groupBy('date')
             ->get();
 
-        for ($days = 29; $days > 0; $days--) {
+        for ($days = 29; $days >= 0; $days--) {
 
             $date = date('Y-m-d', strtotime('-' . $days . ' days'));
 
