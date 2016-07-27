@@ -1,0 +1,9 @@
+{
+    "name": "anomaly/sales_overview_widget-extension",
+    "type": "streams-addon",
+    "autoload": {
+        "psr-4": {
+            "Anomaly\\SalesOverviewWidgetExtension\\": "src/"
+        }
+    }
+}

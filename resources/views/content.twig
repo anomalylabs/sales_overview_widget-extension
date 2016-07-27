@@ -1,0 +1,8 @@
+{{ asset_add('scripts.js', 'anomaly.extension.sales_overview_widget::js/chart.bundle.min.js') }}
+{{ asset_add('scripts.js', 'anomaly.extension.sales_overview_widget::js/graph.js') }}
+
+<canvas
+        data-orders="{{ widget.data.orders|json_encode }}"
+        data-revenue="{{ widget.data.revenue|json_encode }}"
+        data-provides="anomaly.extension.sales_overview_widget"
+        data-json="{{ widget.data.products|json_encode }}"></canvas>
