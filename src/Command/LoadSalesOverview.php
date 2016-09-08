@@ -1,7 +1,6 @@
 <?php namespace Anomaly\SalesOverviewWidgetExtension\Command;
 
 use Anomaly\DashboardModule\Widget\Contract\WidgetInterface;
-use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Database\DatabaseManager;
 
 /**
@@ -12,7 +11,7 @@ use Illuminate\Database\DatabaseManager;
  * @author        Ryan Thompson <ryan@pyrocms.com>
  * @package       Anomaly\SalesOverviewWidgetExtension\Command
  */
-class LoadSalesOverview implements SelfHandling
+class LoadSalesOverview
 {
 
     /**
@@ -44,7 +43,7 @@ class LoadSalesOverview implements SelfHandling
             ->select(
                 [
                     $database->raw('COUNT(id) AS count'),
-                    $database->raw('DATE(created_at) AS date')
+                    $database->raw('DATE(created_at) AS date'),
                 ]
             )
             ->where('created_at', '>=', date('Y-m-d H:i:s', strtotime('-30 days')))
@@ -59,7 +58,7 @@ class LoadSalesOverview implements SelfHandling
             ->select(
                 [
                     $database->raw('SUM(total) AS revenue'),
-                    $database->raw('DATE(created_at) AS date')
+                    $database->raw('DATE(created_at) AS date'),
                 ]
             )
             ->where('created_at', '>=', date('Y-m-d H:i:s', strtotime('-30 days')))
@@ -103,13 +102,19 @@ class LoadSalesOverview implements SelfHandling
             }
         );
 
-        uasort($orders, function($a, $b) {
-            return $a->date > $b->date;
-        });
+        uasort(
+            $orders,
+            function ($a, $b) {
+                return $a->date > $b->date;
+            }
+        );
 
-        uasort($revenue, function($a, $b) {
-            return $a->date > $b->date;
-        });
+        uasort(
+            $revenue,
+            function ($a, $b) {
+                return $a->date > $b->date;
+            }
+        );
 
         $this->widget->addData('orders', array_values($orders));
         $this->widget->addData('revenue', array_values($revenue));

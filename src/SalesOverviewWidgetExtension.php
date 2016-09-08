@@ -3,7 +3,6 @@
 use Anomaly\DashboardModule\Widget\Contract\WidgetInterface;
 use Anomaly\DashboardModule\Widget\Extension\WidgetExtension;
 use Anomaly\SalesOverviewWidgetExtension\Command\LoadSalesOverview;
-use Anomaly\Streams\Platform\Addon\Extension\Extension;
 
 /**
  * Class SalesOverviewWidgetExtension
